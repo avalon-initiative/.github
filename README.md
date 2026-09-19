@@ -5,11 +5,10 @@ Org-wide defaults for every repository under `avalon-initiative`.
 ## What lives here
 
 - `profile/README.md` — the org's public profile page.
-- `labels.yml` — the canonical label set. Individual repos sync to it with the
-  reusable `label-sync.yml` workflow below; this file is the source of truth.
+- Repository labels are managed natively via org Settings → Repository →
+  General → Repository labels, not by a file in this repo.
 - `.github/workflows/*.yml` — reusable (`workflow_call`) workflows that other
   repos call into rather than reimplementing:
-  - `label-sync.yml` — syncs a repo's labels to `labels.yml` in this repo.
   - `claim-check.yml` — lets a contributor comment `/claim` on an unassigned
     issue to self-assign it; labels it `claimed`; tells them if it's already
     taken.
