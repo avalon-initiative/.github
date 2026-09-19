@@ -1,0 +1,22 @@
+name: Label sync (reusable)
+
+on:
+  workflow_call:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Check out org label config
+        uses: actions/checkout@v4
+        with:
+          repository: avalon-initiative/.github
+          path: org-defaults
+
+      - name: Sync labels
+        uses: EndBug/label-sync@v2
+        with:
+          config-file: org-defaults/labels.yml
+          delete-other-labels: false
