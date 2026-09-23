@@ -35,3 +35,15 @@ Org-wide defaults for every repository under `avalon-initiative`.
 
 Reusable workflows are pinned to `@main`, so a change here applies to every
 repo that calls them.
+
+## Branch ruleset
+
+`rulesets/default-protections.json` is the standard default-branch ruleset.
+Rulesets need a public repo (or a paid plan), so apply it once a repo qualifies:
+
+```bash
+gh api -X POST repos/avalon-initiative/<repo>/rulesets --input rulesets/default-protections.json
+```
+
+Turn Actions on first: the required checks come from the caller workflows,
+and their reported names are `call / title-lint` and `call / claim`.
