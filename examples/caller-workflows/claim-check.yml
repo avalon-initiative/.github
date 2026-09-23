@@ -1,10 +1,13 @@
 # Copy into a repo as .github/workflows/claim-check.yml
-name: Claim check
+name: Claim Check
 
 on:
-  issue_comment:
-    types: [created]
+  pull_request:
+    types: [opened, reopened, edited, synchronize, labeled, unlabeled]
 
 jobs:
-  claim:
+  call:
+    permissions:
+      issues: read
+      pull-requests: read
     uses: avalon-initiative/.github/.github/workflows/claim-check.yml@main

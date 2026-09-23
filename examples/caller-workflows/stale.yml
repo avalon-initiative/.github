@@ -1,14 +1,14 @@
 # Copy into a repo as .github/workflows/stale.yml
-name: Stale check
+name: Stale
 
 on:
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "0 12 * * *"
   workflow_dispatch: {}
 
 jobs:
-  stale:
+  call:
+    permissions:
+      issues: write
+      pull-requests: write
     uses: avalon-initiative/.github/.github/workflows/stale.yml@main
-    with:
-      days-before-stale: 30
-      days-before-close: 7
