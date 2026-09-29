@@ -124,7 +124,9 @@ README or its own `CONTRIBUTING.md`.
 
 ## Where To Contribute
 
-Design decisions and the protocol's architecture docs live in
+Architecture docs and architectural decisions live in
+[`avalon-docs`](https://github.com/avalon-initiative/avalon-docs); protocol
+implementation issues live in
 [`avalon-protocol`](https://github.com/avalon-initiative/avalon-protocol). Org-wide
 discussion happens in the [organization Discussions](https://github.com/orgs/avalon-initiative/discussions).
 

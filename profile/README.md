@@ -12,10 +12,12 @@ their own world.
 
 | Repository | What it is |
 |---|---|
-| [avalon-protocol](https://github.com/avalon-initiative/avalon-protocol) | The protocol, the reference server, conformance vectors, and documentation. |
+| [avalon-protocol](https://github.com/avalon-initiative/avalon-protocol) | The protocol, the reference server, and conformance vectors. |
 | [avalon-sdks](https://github.com/avalon-initiative/avalon-sdks) | Client SDKs for Rust, C#, and TypeScript. |
 | [avalon-hub](https://github.com/avalon-initiative/avalon-hub) | The Hub web app and the desktop and mobile app. |
 | [avalon-common-ui](https://github.com/avalon-initiative/avalon-common-ui) | The shared component library the Hub is built on. |
 | [avalon-bot](https://github.com/avalon-initiative/avalon-bot) | The Discord bot that turns a message into a GitHub issue. |
+| [avalon-topology-visualizer](https://github.com/avalon-initiative/avalon-topology-visualizer) | A developer tool that maps the live network of nodes and how they connect. |
+| [avalon-docs](https://github.com/avalon-initiative/avalon-docs) | The canonical documentation for the Avalon ecosystem: start here to learn Avalon. |
 
 Questions and ideas are welcome in the [community Discord](https://discord.gg/FFDsFw9F4g).
