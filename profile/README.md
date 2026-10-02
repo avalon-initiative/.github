@@ -18,6 +18,7 @@ their own world.
 | [avalon-common-ui](https://github.com/avalon-initiative/avalon-common-ui) | The shared component library the Hub is built on. |
 | [avalon-bot](https://github.com/avalon-initiative/avalon-bot) | The Discord bot that turns a message into a GitHub issue. |
 | [avalon-topology-visualizer](https://github.com/avalon-initiative/avalon-topology-visualizer) | A developer tool that maps the live network of nodes and how they connect. |
+| [avalon-ledger-explorer](https://github.com/avalon-initiative/avalon-ledger-explorer) | An independent explorer that verifies tree heads and cosignatures in the browser without trusting the node. |
 | [avalon-docs](https://github.com/avalon-initiative/avalon-docs) | The canonical documentation for the Avalon ecosystem: start here to learn Avalon. |
 
 Questions and ideas are welcome in the [community Discord](https://discord.gg/FFDsFw9F4g).
