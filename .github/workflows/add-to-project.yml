@@ -1,0 +1,40 @@
+name: Add to project (reusable)
+
+# Adds newly opened issues to the organization roadmap project. GITHUB_TOKEN
+# cannot write to an organization project, so the caller passes PROJECT_TOKEN
+# (an organization secret). Without it the job logs a notice and does nothing,
+# so a repo can adopt this workflow before the secret exists.
+on:
+  workflow_call:
+    inputs:
+      project-url:
+        type: string
+        default: https://github.com/orgs/avalon-initiative/projects/2
+    secrets:
+      PROJECT_TOKEN:
+        required: false
+
+permissions: {}
+
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check that the project token is configured
+        id: gate
+        env:
+          HAS_TOKEN: ${{ secrets.PROJECT_TOKEN != '' }}
+        run: |
+          echo "enabled=${HAS_TOKEN}" >> "${GITHUB_OUTPUT}"
+          if [ "${HAS_TOKEN}" != "true" ]; then
+            echo "::notice::PROJECT_TOKEN is not configured; skipping add to project"
+          fi
+
+      # Adding an item that is already on the board changes nothing, so no
+      # separate "already added" check is needed.
+      - name: Add the issue to the project
+        if: steps.gate.outputs.enabled == 'true'
+        uses: actions/add-to-project@v2.0.0
+        with:
+          project-url: ${{ inputs.project-url }}
+          github-token: ${{ secrets.PROJECT_TOKEN }}

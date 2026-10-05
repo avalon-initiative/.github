@@ -14,6 +14,9 @@ Org-wide defaults for every repository under `avalon-initiative`.
   - `stale-claim-check.yml` — pings quiet claims and unassigns them after a grace period.
   - `pr-format-lint.yml` — PR title/commit format check.
   - `welcome.yml` — first-issue / first-PR greeting.
+  - `add-to-project.yml` — adds newly opened issues to the organization roadmap
+    project (needs the organization secret `PROJECT_TOKEN`; skips with a notice
+    when it is not set).
   - `dependabot-security-title.yml` — retitles security-driven Dependabot PRs.
   - `stale.yml` — marks inactive issues/PRs `stale` and closes them after a
     grace period, exempting `status: blocked` and `decision`.
@@ -28,6 +31,9 @@ Org-wide defaults for every repository under `avalon-initiative`.
 
 1. Copy the files from `examples/caller-workflows/` into the new repo's
    `.github/workflows/`.
+   The `add-to-project.yml` caller needs the organization secret `PROJECT_TOKEN`
+   (the project allows only one native auto-add workflow, which is set to
+   `avalon-protocol`).
 2. Add the per-repo files GitHub does not inherit: `LICENSE` (Apache-2.0),
    `.github/CODEOWNERS`, `.github/dependabot.yml`.
 3. Override an inherited community file only when the repo genuinely needs its
