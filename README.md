@@ -2,6 +2,10 @@
 
 Org-wide defaults for every repository under `avalon-initiative`.
 
+The initiative supports open-source software broadly. Avalon Protocol is the
+core project; other projects (such as pyn) live here too and are independent
+of it. The defaults below apply to all of them.
+
 ## What lives here
 
 - `profile/README.md` — the org's public profile page.
