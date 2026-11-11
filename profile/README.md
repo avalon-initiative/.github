@@ -36,5 +36,6 @@ open-source values, not the protocol.
 |---|---|
 | [pyn](https://github.com/avalon-initiative/pyn) | Version control that merges what can be merged and locks what shouldn't be: git-style collaboration with Perforce-style exclusive checkout. |
 | [pyn-web](https://github.com/avalon-initiative/pyn-web) | Web UI for pyn: browse repositories, files and exclusive locks. |
+| [pyn-common-ui](https://github.com/avalon-initiative/pyn-common-ui) | The shared Vue 3 component library the pyn web app is built on. |
 
 Questions and ideas are welcome in the [community Discord](https://discord.gg/FFDsFw9F4g).
