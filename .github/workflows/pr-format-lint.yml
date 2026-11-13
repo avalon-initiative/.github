@@ -17,12 +17,12 @@ jobs:
           TITLE: ${{ github.event.pull_request.title }}
         run: |
           set -euo pipefail
-          pattern='^(\[#[0-9]+\]|\[noissue\]|\[hotfix\]|\[security\]) - .+$'
+          pattern='^((\[#[0-9]+\]|\[noissue\]|\[hotfix\]|\[security\]) - .+|\[RELEASE\] - v[0-9]+\.[0-9]+\.[0-9]+[0-9A-Za-z._-]*)$'
           if ! [[ "$TITLE" =~ $pattern ]]; then
             echo "PR title does not match the required format:"
             echo "  $TITLE"
             echo
-            echo "Expected: '[#<issue>] - <short description>', '[noissue] - <short description>', '[hotfix] - <short description>', or '[security] - <short description>'."
+            echo "Expected: '[#<issue>] - <short description>', '[noissue] - <short description>', '[hotfix] - <short description>', '[security] - <short description>', or, for release PRs (maintainer only), '[RELEASE] - v<version>[-title]'."
             echo "See CONTRIBUTING.md -> Pull Request Titles."
             exit 1
           fi
@@ -43,7 +43,7 @@ jobs:
           # only the PR title does. This is a courtesy hint, not a gate: it
           # never fails the check, just flags commits that don't match so a
           # contributor can tidy them up if they want to.
-          pattern='^(\[#[0-9]+\]|\[noissue\]|\[hotfix\]|\[security\]) - .+$'
+          pattern='^((\[#[0-9]+\]|\[noissue\]|\[hotfix\]|\[security\]) - .+|\[RELEASE\] - v[0-9]+\.[0-9]+\.[0-9]+[0-9A-Za-z._-]*)$'
           base="${{ github.event.pull_request.base.sha }}"
           head="${{ github.event.pull_request.head.sha }}"
 
@@ -60,7 +60,7 @@ jobs:
 
           if [ "$found" -ne 0 ]; then
             echo
-            echo "Suggested format: '[#<issue>] - <short description>', '[noissue] - <short description>', '[hotfix] - <short description>', or '[security] - <short description>'."
+            echo "Suggested format: '[#<issue>] - <short description>', '[noissue] - <short description>', '[hotfix] - <short description>', '[security] - <short description>', or, for release PRs (maintainer only), '[RELEASE] - v<version>[-title]'."
             echo "See CONTRIBUTING.md -> Commit Messages."
           fi
           exit 0

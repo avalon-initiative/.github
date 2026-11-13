@@ -27,7 +27,7 @@ jobs:
               return;
             }
 
-            if (/^(\[noissue\]|\[hotfix\]|\[security\]) - .+/.test(title)) {
+            if (/^((\[noissue\]|\[hotfix\]|\[security\]) - .+|\[RELEASE\] - v\d+\.\d+\.\d+[\w.-]*)$/.test(title)) {
               const { owner, repo } = context.repo;
               const { data: perm } = await github.rest.repos.getCollaboratorPermissionLevel({
                 owner,
@@ -39,7 +39,7 @@ jobs:
                 return;
               }
               core.setFailed(
-                `[noissue]/[hotfix] titles are restricted to the maintainer and named core devs (see CONTRIBUTING.md). ` +
+                `[noissue]/[hotfix]/[RELEASE] titles are restricted to the maintainer and named core devs (see CONTRIBUTING.md). ` +
                 `@${author} does not have write access to this repo, so this title isn't allowed — open an issue and use "[#<issue>] - ..." instead.`
               );
               return;
