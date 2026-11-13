@@ -23,6 +23,7 @@ generally: surfacing it is always welcome.
   lookup
 - `noissue-short-description` — maintainer-only
 - `hotfix-short-description` — maintainer-only
+- `release-vX.Y.Z` — maintainer-only, made by a repository's release script
 
 ## Work Tracking
 
@@ -44,7 +45,7 @@ after that if there's still no activity.*
 
 A CI check (`claim-check.yml`) enforces this: it reads the issue number(s)
 your PR closes (via a closing keyword like `Closes #123`) and fails if you
-aren't assigned to every one of them. `[noissue]`/`[hotfix]` titles skip this
+aren't assigned to every one of them. `[noissue]`/`[hotfix]`/`[RELEASE]` titles skip this
 check, but only for PR authors with write access to the repo.
 
 ## Commits And Pull Requests
@@ -59,14 +60,16 @@ Merges are squash-only, so only the PR title survives onto `main`; individual co
 If you'd like to follow the convention anyway, it's the same pattern as PR
 titles below.
 
-**`[noissue]`, `[hotfix]`, and `[security]` are restricted.** All three exist
-only for the maintainer, a small explicitly-named set of trusted core
+**`[noissue]`, `[hotfix]`, `[security]`, and `[RELEASE]` are restricted.** All of
+them exist only for the maintainer, a small explicitly-named set of trusted core
 developers, and (for `[security]`/`[noissue]`) Dependabot.
 
 - `[noissue]` — trivial, no ticket is warranted at all.
 - `[hotfix]` — must be fixed now and there's a clear path to the fix, but
   there wasn't time to write up a ticket first.
 - `[security]` — a fix for a known vulnerability.
+- `[RELEASE] - vX.Y.Z[-title]` — a release PR made by a repository's release
+  script (the version bump). The version part is required and checked.
 
 ### Pull Request Titles
 
@@ -100,7 +103,7 @@ change either way.
 Follow the conventions in this file the same as any contributor would. In
 addition:
 
-- **Never use `[noissue]` or `[hotfix]` (or their branch-name equivalents)
+- **Never use `[noissue]`, `[hotfix]` or `[RELEASE]` (or their branch-name equivalents)
   unless you are the maintainer or on the named core-dev list** — every
   other commit, PR, and branch needs a real issue number.
 - Apply the `Co-Authored-By: <Tool> <email>` trailer above to every commit
